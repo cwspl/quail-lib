@@ -52,7 +52,7 @@ class htmlElements {
 		'ul'	 => array('text' => true, 'list' => true),
 		'dl'     => array('text' => true, 'list' => true),
 		'ol' 	 => array('text' => true, 'list' => true),
-		'blockquote' => array('text' => true, 'quote' => true),
+		'blockquote' => array('text' => false, 'quote' => false),
 		'q'		 => array('text' => true, 'quote' => true),
 		'acronym' => array('acronym' => true, 'text' => true),
 		'abbr'   => array('acronym' => true, 'text' => true),
@@ -69,7 +69,7 @@ class htmlElements {
 	*	@return array An array of HTML tag names
 	*	@todo this should cache results in a static variable, as many of these can be iterated over again
 	*/
-	function getElementsByOption($option, $value = true) {
+static	function getElementsByOption($option, $value = true) {
 		foreach(self::$html_elements as $k => $element) {
 			if(isset($element[$option]) && $element[$option] == $value)
 				$results[] = $k;
